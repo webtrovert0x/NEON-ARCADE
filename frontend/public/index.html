@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEON ORACLE | BOT Chain Testnet</title>
+  <meta name="description" content="Neon Oracle is a cyberpunk decentralized number prediction game powered by BOT Chain Testnet. Predict target frequencies, decrypt quantum oracles, and claim BOT bounties.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Web3 and App Styles -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <!-- Background Aesthetics -->
+  <div class="cyber-bg" aria-hidden="true"></div>
+  <div class="cyber-grid" aria-hidden="true"></div>
+  <div class="scanlines" aria-hidden="true"></div>
+
+  <!-- Main Oracle Terminal Application -->
+  <main class="oracle-app" id="app">
+    
+    <!-- Top Telemetry & Wallet Header -->
+    <header class="header-bar">
+      <div class="network-badge">
+        <span class="network-dot" id="networkDot"></span>
+        <span id="networkName">BOT Chain Testnet</span>
+      </div>
+
+      <div class="header-controls">
+        <button id="switchNetworkBtn" class="action-pill-btn" onclick="switchToBotChain()" style="display:none; color: var(--neon-magenta); border-color: var(--neon-magenta);">
+          ⚠️ Switch to BOT Chain
+        </button>
+
+        <button id="connectWalletBtn" class="wallet-btn" onclick="connectWallet()">
+          <span>⚡</span> Connect Wallet
+        </button>
+
+        <button id="soundToggleBtn" class="icon-btn" aria-label="Toggle Sound Effects" title="Toggle Sound">
+          🔊
+        </button>
+      </div>
+    </header>
+
+    <!-- Brand Hero Section -->
+    <section class="brand-section">
+      <div class="brand-badge">DECENTRALIZED QUANTUM MATRIX</div>
+      <h1 class="brand-title">NEON ORACLE</h1>
+      <p class="brand-sub">Synchronize with the quantum oracle frequency on BOT Chain Testnet</p>
+    </section>
+
+    <!-- Interactive Oracle Core Sphere -->
+    <section class="oracle-core-wrapper">
+      <div class="oracle-core" id="oracleCore" onclick="playSound('click')" title="Oracle Core Matrix">
+        <div class="oracle-rings"></div>
+      </div>
+      <div class="oracle-status-text" id="oracleStatus">
+        ORACLE AWAITING FREQUENCY...
+      </div>
+    </section>
+
+    <!-- Difficulty / Tier Calibration -->
+    <section class="tier-selection">
+      <div class="section-label">
+        <span>Oracle Matrix Calibration</span>
+        <span id="rangeInfo" style="color: var(--neon-cyan); font-family: 'Orbitron', sans-serif;">[ Range: 1 — 100 ]</span>
+      </div>
+      <div class="tier-grid">
+        <button class="tier-btn" data-tier="initiate">
+          <div class="tier-name">INITIATE</div>
+          <div class="tier-range">Range: 1 — 50 (7 Nodes)</div>
+          <div class="tier-bounty">⚡ 0.05 BOT Bounty</div>
+        </button>
+        <button class="tier-btn active" data-tier="seer">
+          <div class="tier-name">SEER</div>
+          <div class="tier-range">Range: 1 — 100 (5 Nodes)</div>
+          <div class="tier-bounty">⚡ 0.15 BOT Bounty</div>
+        </button>
+        <button class="tier-btn" data-tier="grand">
+          <div class="tier-name">GRAND ORACLE</div>
+          <div class="tier-range">Range: 1 — 500 (8 Nodes)</div>
+          <div class="tier-bounty">⚡ 0.50 BOT Bounty</div>
+        </button>
+      </div>
+    </section>
+
+    <!-- Interactive Prediction HUD -->
+    <section class="interactive-hud">
+      <div class="energy-gauge-bar">
+        <span style="color: var(--text-muted); font-size: 0.85rem; text-transform: uppercase;">Energy Nodes Available:</span>
+        <div class="nodes-container" id="energyNodes">
+          <!-- Dynamic Energy Nodes injected here -->
+        </div>
+        <span id="attemptsCount" style="color: var(--neon-cyan); font-family: 'Orbitron', sans-serif;">5/5</span>
+      </div>
+
+      <div class="input-action-row">
+        <input 
+          type="number" 
+          id="guessInput" 
+          class="guess-input" 
+          placeholder="ENTER FREQ" 
+          autocomplete="off"
+          min="1"
+          max="100"
+        />
+        <button id="submitGuessBtn" class="submit-btn" onclick="submitPrediction()">
+          PROBE FREQ
+        </button>
+      </div>
+
+      <div class="sub-actions-row">
+        <button id="hintBtn" class="action-pill-btn" onclick="requestOracleHint()">
+          🔮 Quantum Hint
+        </button>
+        <button id="resetRoundBtn" class="action-pill-btn" onclick="initGameRound(currentTier)">
+          🔄 Re-Calibrate Round
+        </button>
+      </div>
+
+      <div id="hintBanner" class="hint-banner"></div>
+    </section>
+
+    <!-- Real-time Oracle Telemetry Logs -->
+    <section class="telemetry-feed">
+      <div class="telemetry-title">
+        <span>Signal Telemetry Stream</span>
+        <span style="font-size: 0.75rem; color: var(--neon-cyan);">LIVE</span>
+      </div>
+      <div class="history-chips" id="guessHistory">
+        <!-- Telemetry guess chips injected here -->
+      </div>
+    </section>
+
+    <!-- Stats HUD Matrix -->
+    <section class="stats-matrix">
+      <div class="stat-box">
+        <div class="stat-val accent" id="statWins">0</div>
+        <div class="stat-lbl">Total Syncs</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-val" id="statStreak">0</div>
+        <div class="stat-lbl">Win Streak</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-val gold" id="statBounties">0.00</div>
+        <div class="stat-lbl">BOT Bounties</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-val accent" id="statAccuracy">0%</div>
+        <div class="stat-lbl">Accuracy Rate</div>
+      </div>
+    </section>
+
+    <!-- Footer Network Information -->
+    <footer class="settings-bar">
+      <span>Chain ID: <strong>968</strong> (0x3c8)</span>
+      <a href="https://scan.botchain.ai" target="_blank" rel="noopener noreferrer" class="network-details-link">
+        BOT Chain Explorer ↗
+      </a>
+    </footer>
+
+  </main>
+
+  <!-- Cyber Toast Notification -->
+  <div id="cyberToast" class="cyber-toast" role="alert"></div>
+
+  <!-- Web3 & App Scripts -->
+  <script src="script.js"></script>
+</body>
+</html>
