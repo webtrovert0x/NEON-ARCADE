@@ -8,6 +8,12 @@ const nextConfig = {
     config.resolve.alias = {
       ...config.resolve.alias,
       '@wagmi/core/tempo': path.resolve(__dirname, 'config/tempo-fallback.js'),
+      '@x402/evm/exact/client': path.resolve(__dirname, 'config/x402-fallback.js'),
+      '@x402/evm/upto/client': path.resolve(__dirname, 'config/x402-fallback.js'),
+      '@x402/evm/client': path.resolve(__dirname, 'config/x402-fallback.js'),
+      '@x402/evm': path.resolve(__dirname, 'config/x402-fallback.js'),
+      '@base-org/account': path.resolve(__dirname, 'config/x402-fallback.js'),
+      '@coinbase/cdp-sdk': path.resolve(__dirname, 'config/x402-fallback.js'),
     };
     config.resolve.fallback = {
       ...config.resolve.fallback,
