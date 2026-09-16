@@ -61,9 +61,17 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## 📜 Smart Contracts & On-Chain Vault
 
-Deploy the smart contracts (`NeonArcadeScore.sol` and `NeonOracle.sol`) to BOT Chain Testnet:
+Deployed live on **BOT Chain Testnet (`968`)**:
+- 🏆 **`NeonArcadeScore`**: [`0x2726459981F58d2ea331A2309655DB267057aaC8`](https://scan.bohr.life/address/0x2726459981F58d2ea331A2309655DB267057aaC8)
+- 🔮 **`NeonOracle`**: [`0xa5af6637A9bAB165CDF467b5385250770757cb01`](https://scan.bohr.life/address/0xa5af6637A9bAB165CDF467b5385250770757cb01)
+
+Deploy or verify contracts:
 ```bash
+# Deploy to BOT Chain Testnet
 npm run deploy:testnet
+
+# Verify contract
+npm run verify:testnet
 ```
 
 ---
