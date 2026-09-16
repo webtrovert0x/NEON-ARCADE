@@ -1,0 +1,29 @@
+{
+  "language": "Solidity",
+  "sources": {
+    "contracts/NeonArcadeScore.sol": {
+      "content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.20;\n\n/**\n * @title NeonArcadeScore\n * @dev Gas-optimized decentralized arcade score vault on BOT Chain Testnet (Chain ID: 968).\n * Records player high scores, win counts, and maximum streaks with zero overhead.\n */\ncontract NeonArcadeScore {\n    struct PlayerStats {\n        uint256 totalPoints;\n        uint256 gamesWon;\n        uint256 highStreak;\n        uint256 lastUpdated;\n    }\n\n    // Mapping from player wallet address to their on-chain arcade stats\n    mapping(address => PlayerStats) public playerStats;\n\n    // Leaderboard tracking\n    address[] public registeredPlayers;\n    mapping(address => bool) private hasPlayed;\n\n    // Events for real-time telemetry indexing\n    event ScoreRecorded(\n        address indexed player,\n        uint256 totalPoints,\n        uint256 gamesWon,\n        uint256 highStreak,\n        uint256 timestamp\n    );\n\n    /**\n     * @notice Commit local arcade session score to BOT Chain Testnet.\n     * @param points Total points accumulated\n     * @param won Number of games won\n     * @param streak Highest consecutive streak achieved\n     */\n    function recordScore(uint256 points, uint256 won, uint256 streak) external {\n        PlayerStats storage stats = playerStats[msg.sender];\n\n        // Track new players for leaderboard enumeration\n        if (!hasPlayed[msg.sender]) {\n            hasPlayed[msg.sender] = true;\n            registeredPlayers.push(msg.sender);\n        }\n\n        // Update stats (points and wins are monotonic; streak updates if higher)\n        if (points > stats.totalPoints) {\n            stats.totalPoints = points;\n        }\n        if (won > stats.gamesWon) {\n            stats.gamesWon = won;\n        }\n        if (streak > stats.highStreak) {\n            stats.highStreak = streak;\n        }\n        stats.lastUpdated = block.timestamp;\n\n        emit ScoreRecorded(msg.sender, stats.totalPoints, stats.gamesWon, stats.highStreak, block.timestamp);\n    }\n\n    /**\n     * @notice Get stats for a specific player.\n     */\n    function getPlayerStats(address player) external view returns (PlayerStats memory) {\n        return playerStats[player];\n    }\n\n    /**\n     * @notice Total number of unique players registered on-chain.\n     */\n    function getTotalPlayers() external view returns (uint256) {\n        return registeredPlayers.length;\n    }\n}\n"
+    }
+  },
+  "settings": {
+    "evmVersion": "paris",
+    "optimizer": {
+      "enabled": false,
+      "runs": 200
+    },
+    "outputSelection": {
+      "*": {
+        "*": [
+          "abi",
+          "evm.bytecode",
+          "evm.deployedBytecode",
+          "evm.methodIdentifiers",
+          "metadata"
+        ],
+        "": [
+          "ast"
+        ]
+      }
+    }
+  }
+}

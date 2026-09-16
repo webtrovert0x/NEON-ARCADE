@@ -1,0 +1,29 @@
+{
+  "language": "Solidity",
+  "sources": {
+    "contracts/NeonOracle.sol": {
+      "content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.0;\n\n/**\n * @title NeonOracle\n * @dev Decentralized prediction & number oracle game tailored for BOT Chain Testnet.\n */\ncontract NeonOracle {\n    address public owner;\n    uint256 public gameRound;\n    uint256 public prizePool;\n    \n    enum Difficulty { INITIATE, SEER, GRAND_ORACLE }\n\n    struct RoundData {\n        uint256 targetNumber;\n        uint256 maxRange;\n        uint256 maxAttempts;\n        uint256 entryFee;\n        bool active;\n    }\n\n    RoundData public currentRound;\n    \n    mapping(address => uint256) public playerGuesses;\n    mapping(address => uint256) public attemptsUsed;\n    mapping(address => bool) public hasGuessed;\n    mapping(address => uint256) public totalWins;\n\n    event RoundStarted(uint256 indexed roundId, uint256 maxRange, uint256 prize);\n    event OracleGuessed(address indexed player, uint256 guess, string hint);\n    event OracleSynchronized(address indexed winner, uint256 roundId, uint256 prize);\n    event PrizePoolFunded(address indexed funder, uint256 amount);\n\n    modifier onlyOwner() {\n        require(msg.sender == owner, \"NeonOracle: Only architect can execute\");\n        _;\n    }\n\n    constructor() payable {\n        owner = msg.sender;\n        gameRound = 1;\n        prizePool = msg.value;\n        _startNewRound(100, 5, 0.01 ether);\n    }\n\n    function _startNewRound(uint256 _maxRange, uint256 _maxAttempts, uint256 _entryFee) internal {\n        // Pseudo-random seed generation for testnet game round\n        uint256 pseudoSecret = (uint256(keccak256(abi.encodePacked(block.timestamp, block.prevrandao, gameRound, address(this)))) % _maxRange) + 1;\n        \n        currentRound = RoundData({\n            targetNumber: pseudoSecret,\n            maxRange: _maxRange,\n            maxAttempts: _maxAttempts,\n            entryFee: _entryFee,\n            active: true\n        });\n\n        emit RoundStarted(gameRound, _maxRange, prizePool);\n    }\n\n    function fundOracle() external payable {\n        require(msg.value > 0, \"NeonOracle: Must deposit positive amount\");\n        prizePool += msg.value;\n        emit PrizePoolFunded(msg.sender, msg.value);\n    }\n\n    function submitPrediction(uint256 _guess) external payable {\n        require(currentRound.active, \"NeonOracle: Round is not active\");\n        require(_guess >= 1 && _guess <= currentRound.maxRange, \"NeonOracle: Guess out of bounds\");\n        require(attemptsUsed[msg.sender] < currentRound.maxAttempts, \"NeonOracle: Max attempts reached for round\");\n\n        if (currentRound.entryFee > 0) {\n            require(msg.value >= currentRound.entryFee, \"NeonOracle: Insufficient entry fee\");\n            prizePool += msg.value;\n        }\n\n        attemptsUsed[msg.sender]++;\n        playerGuesses[msg.sender] = _guess;\n        hasGuessed[msg.sender] = true;\n\n        if (_guess == currentRound.targetNumber) {\n            currentRound.active = false;\n            totalWins[msg.sender]++;\n            \n            uint256 reward = prizePool;\n            prizePool = 0;\n            \n            (bool sent, ) = payable(msg.sender).call{value: reward}(\"\");\n            require(sent, \"NeonOracle: Failed to transfer reward\");\n\n            emit OracleSynchronized(msg.sender, gameRound, reward);\n            gameRound++;\n            _startNewRound(currentRound.maxRange, currentRound.maxAttempts, currentRound.entryFee);\n        } else if (_guess < currentRound.targetNumber) {\n            emit OracleGuessed(msg.sender, _guess, \"HIGHER\");\n        } else {\n            emit OracleGuessed(msg.sender, _guess, \"LOWER\");\n        }\n    }\n\n    function startCustomRound(uint256 _maxRange, uint256 _maxAttempts, uint256 _entryFee) external onlyOwner {\n        gameRound++;\n        _startNewRound(_maxRange, _maxAttempts, _entryFee);\n    }\n\n    function emergencyWithdraw() external onlyOwner {\n        uint256 bal = address(this).balance;\n        prizePool = 0;\n        (bool sent, ) = payable(owner).call{value: bal}(\"\");\n        require(sent, \"NeonOracle: Withdraw failed\");\n    }\n\n    receive() external payable {\n        prizePool += msg.value;\n    }\n}\n"
+    }
+  },
+  "settings": {
+    "evmVersion": "paris",
+    "optimizer": {
+      "enabled": false,
+      "runs": 200
+    },
+    "outputSelection": {
+      "*": {
+        "*": [
+          "abi",
+          "evm.bytecode",
+          "evm.deployedBytecode",
+          "evm.methodIdentifiers",
+          "metadata"
+        ],
+        "": [
+          "ast"
+        ]
+      }
+    }
+  }
+}
