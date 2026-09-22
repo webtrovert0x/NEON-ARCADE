@@ -30,7 +30,7 @@ export const OnChainScoreCard: React.FC = () => {
           <span className="onchain-beacon" />
           <span className="onchain-title">BOT CHAIN ON-CHAIN VAULT</span>
         </div>
-        <span className="onchain-network-badge">BOT (968)</span>
+        <span className="onchain-network-badge" style={{ background: 'rgba(0, 255, 157, 0.15)', borderColor: 'rgba(0, 255, 157, 0.5)', color: '#00ff9d' }}>MAINNET (677)</span>
       </div>
 
       <div className="onchain-stats-grid">
@@ -69,7 +69,7 @@ export const OnChainScoreCard: React.FC = () => {
             onClick={syncScoreToChain}
             disabled={isSyncing || (!hasUnsavedPoints && globalScore === 0)}
             className={`onchain-sync-btn ${hasUnsavedPoints ? 'pulse-sync' : ''}`}
-            title="Commit your high score to BOT Chain Testnet smart contract"
+            title="Commit your high score to BOT Chain Mainnet smart contract"
           >
             {isSyncing ? (
               <>
@@ -90,19 +90,19 @@ export const OnChainScoreCard: React.FC = () => {
           </button>
         )}
 
-        {/* Bohr Explorer Link */}
+        {/* Explorer Link */}
         {lastTxHash ? (
           <a
-            href={`https://scan.bohr.life/tx/${lastTxHash}`}
+            href={`https://scan.botchain.ai/tx/${lastTxHash}`}
             target="_blank"
             rel="noopener noreferrer"
             className="onchain-explorer-btn"
           >
-            🔍 View Tx on Bohr Scan ↗
+            🔍 View Tx on BOT Scan ↗
           </a>
         ) : (
           <a
-            href={`https://scan.bohr.life/address/${ARCADE_SCORE_CONTRACT_ADDRESS}`}
+            href={`https://scan.botchain.ai/address/${ARCADE_SCORE_CONTRACT_ADDRESS}`}
             target="_blank"
             rel="noopener noreferrer"
             className="onchain-explorer-btn"

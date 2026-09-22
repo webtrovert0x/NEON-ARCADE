@@ -81,7 +81,7 @@ export const WalletWidget: React.FC = () => {
         <button
           onClick={switchToBotChain}
           className="network-switch-pill"
-          title="Click to switch to BOT Chain Testnet (968)"
+          title="Click to switch to BOT Chain Mainnet (677)"
         >
           ⚠️ Switch to BOT Chain
         </button>
@@ -99,7 +99,7 @@ export const WalletWidget: React.FC = () => {
         aria-expanded={dropdownOpen}
       >
         {/* Network & Live Balance Segment */}
-        <div className="wallet-pill-segment balance-segment" title="Connected to BOT Chain Testnet">
+        <div className="wallet-pill-segment balance-segment" title="Connected to BOT Chain Mainnet">
           <span
             className={`wallet-live-beacon ${isBotChain ? 'beacon-live' : 'beacon-warn'}`}
           />
@@ -142,7 +142,7 @@ export const WalletWidget: React.FC = () => {
             <div className="network-status-group">
               <span className={`network-dot ${isBotChain ? 'online' : 'offline'}`} />
               <span className="network-name-text">
-                {isBotChain ? 'BOT Chain Testnet (968)' : 'Wrong Network'}
+                {isBotChain ? 'BOT Chain Mainnet (677)' : 'Wrong Network'}
               </span>
             </div>
           </div>
@@ -160,14 +160,14 @@ export const WalletWidget: React.FC = () => {
             </button>
 
             <a
-              href={`https://scan.bohr.life/address/${account}`}
+              href={`https://scan.botchain.ai/address/${account}`}
               target="_blank"
               rel="noopener noreferrer"
               className="wallet-dropdown-action"
               onClick={() => setDropdownOpen(false)}
             >
               <span className="action-icon">🔍</span>
-              <span className="action-label">View on Bohr Scan ↗</span>
+              <span className="action-label">View on BOT Scan ↗</span>
             </a>
 
             <button

@@ -10,7 +10,7 @@ import {
   useWriteContract,
 } from 'wagmi';
 import { useAppKit } from '@reown/appkit/react';
-import { botChainTestnet } from '../config/botchain';
+import { botChainMainnet, botChainTestnet } from '../config/botchain';
 import { ARCADE_SCORE_CONTRACT_ADDRESS, ARCADE_SCORE_ABI } from '../config/arcadeContract';
 import { playSound } from '../lib/audio';
 
@@ -66,7 +66,7 @@ export const Web3Provider = ({ children }: { children: ReactNode }) => {
   const [toastMessage, setToastMessage] = useState<string | null>(null);
   const [toastType, setToastType] = useState<'info' | 'success' | 'warn' | 'error'>('info');
 
-  const isBotChain = chainId === botChainTestnet.id;
+  const isBotChain = chainId === botChainMainnet.id;
 
   // Read on-chain score stats for the connected account
   const { data: rawContractStats, refetch: refetchStats } = useReadContract({
@@ -162,8 +162,8 @@ export const Web3Provider = ({ children }: { children: ReactNode }) => {
     playSound('click', soundEnabled);
     try {
       if (switchChain) {
-        switchChain({ chainId: botChainTestnet.id });
-        showToast('Switching to BOT Chain Testnet...', 'info');
+        switchChain({ chainId: botChainMainnet.id });
+        showToast('Switching to BOT Chain Mainnet...', 'info');
       }
     } catch (e: any) {
       showToast(e.message || 'Failed to switch network', 'error');
@@ -177,7 +177,7 @@ export const Web3Provider = ({ children }: { children: ReactNode }) => {
       return;
     }
     if (!isBotChain) {
-      showToast('Please switch to BOT Chain Testnet (968)', 'warn');
+      showToast('Please switch to BOT Chain Mainnet (677)', 'warn');
       await switchToBotChain();
       return;
     }
@@ -195,7 +195,7 @@ export const Web3Provider = ({ children }: { children: ReactNode }) => {
 
       setLastTxHash(hash);
       playSound('win', soundEnabled);
-      showToast('⚡ High score submitted to BOT Chain Testnet!', 'success');
+      showToast('⚡ High score submitted to BOT Chain Mainnet!', 'success');
 
       // Refresh stats after block inclusion
       setTimeout(() => {

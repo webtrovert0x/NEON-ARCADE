@@ -9,8 +9,10 @@
     "build:frontend": "npm --prefix frontend run build",
     "start": "next start",
     "lint": "next lint",
+    "deploy:mainnet": "hardhat run scripts/deploy.js --network botchainMainnet",
+    "verify:mainnet": "node scripts/verify_cmd.js",
     "deploy:testnet": "hardhat run scripts/deploy.js --network botchainTestnet",
-    "verify:testnet": "hardhat run scripts/verify.js --network botchainTestnet",
+    "verify:testnet": "node scripts/verify_cmd.js",
     "flatten": "hardhat flatten contracts/NeonArcadeScore.sol > NeonArcadeScore_flattened.sol",
     "test": "hardhat test"
   },
@@ -47,6 +49,7 @@
   },
   "devDependencies": {
     "@nomiclabs/hardhat-ethers": "^2.0.0",
+    "@nomiclabs/hardhat-etherscan": "^3.1.8",
     "@nomiclabs/hardhat-waffle": "^2.0.0",
     "@types/node": "^20.14.9",
     "@types/react": "^18.3.3",

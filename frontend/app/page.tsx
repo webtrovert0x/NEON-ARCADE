@@ -36,7 +36,7 @@ export default function Home() {
                 letterSpacing: '1.5px',
               }}
             >
-              BOT CHAIN TESTNET ARCADE
+              BOT CHAIN MAINNET ARCADE
             </div>
             <h1 className="arcade-title">NEON ARCADE</h1>
             <p className="arcade-sub">
@@ -97,7 +97,7 @@ export default function Home() {
             >
               <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>TARGET NETWORK</div>
               <div style={{ fontFamily: 'Orbitron, sans-serif', fontSize: '1.3rem', color: 'var(--neon-green)', marginTop: '4px' }}>
-                BOT Chain (968)
+                BOT Chain Mainnet (677)
               </div>
             </div>
           </div>
@@ -162,20 +162,20 @@ export default function Home() {
           >
             <div>
               <h4 style={{ fontFamily: 'Orbitron, sans-serif', fontSize: '1.1rem', color: '#fff', marginBottom: '4px' }}>
-                Powered by BOT Chain Testnet
+                Powered by BOT Chain Mainnet
               </h4>
               <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>
-                Chain ID: 968 (0x3c8) • RPC: https://rpc.bohr.life • Zero latency & high scores
+                Chain ID: 677 (0x2a5) • RPC: https://rpc.botchain.ai • Zero latency & on-chain verification
               </p>
             </div>
             <a
-              href="https://scan.bohr.life"
+              href="https://scan.botchain.ai"
               target="_blank"
               rel="noopener noreferrer"
               className="nav-tab-btn"
-              style={{ textDecoration: 'none', color: 'var(--neon-cyan)', borderColor: 'var(--neon-cyan)' }}
+              style={{ textDecoration: 'none', color: 'var(--neon-green)', borderColor: 'var(--neon-green)' }}
             >
-              Testnet Scan ↗
+              Mainnet Scan ↗
             </a>
           </div>
         </div>

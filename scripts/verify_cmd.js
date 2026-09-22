@@ -2,10 +2,12 @@ const fs = require('fs');
 const path = require('path');
 const https = require('https');
 
+const EXPLORER_HOST = process.env.EXPLORER_HOST || 'scan.botchain.ai';
+
 function postVerification(postData) {
     return new Promise((resolve, reject) => {
         const options = {
-            hostname: 'scan.bohr.life',
+            hostname: EXPLORER_HOST,
             port: 443,
             path: '/api',
             method: 'POST',
@@ -35,7 +37,7 @@ function postVerification(postData) {
 
 function checkStatus(guid) {
     return new Promise((resolve) => {
-        https.get(`https://scan.bohr.life/api?module=contract&action=checkverifystatus&guid=${guid}`, (res) => {
+        https.get(`https://${EXPLORER_HOST}/api?module=contract&action=checkverifystatus&guid=${guid}`, (res) => {
             let data = '';
             res.on('data', chunk => data += chunk);
             res.on('end', () => {
@@ -80,8 +82,8 @@ async function verifyWithStandardJson(contractAddress, contractName, jsonPath) {
             const statusRes = await checkStatus(guid);
             console.log(`[Attempt ${i + 1}] Status:`, statusRes.result || statusRes);
             if (statusRes.result && statusRes.result.toLowerCase().includes('pass')) {
-                console.log(`🎉 SUCCESS: ${contractName} is VERIFIED on Bohr Scan!`);
-                console.log(`🔗 https://scan.bohr.life/address/${contractAddress}#code`);
+                console.log(`🎉 SUCCESS: ${contractName} is VERIFIED on ${EXPLORER_HOST}!`);
+                console.log(`🔗 https://${EXPLORER_HOST}/address/${contractAddress}#code`);
                 return true;
             }
             if (statusRes.result && statusRes.result.toLowerCase().includes('fail')) {
@@ -119,8 +121,8 @@ async function verifyWithStandardJson(contractAddress, contractName, jsonPath) {
                 const statusRes = await checkStatus(guid);
                 console.log(`[Attempt ${i + 1}] Status:`, statusRes.result || statusRes);
                 if (statusRes.result && statusRes.result.toLowerCase().includes('pass')) {
-                    console.log(`🎉 SUCCESS: ${contractName} is VERIFIED on Bohr Scan!`);
-                    console.log(`🔗 https://scan.bohr.life/address/${contractAddress}#code`);
+                    console.log(`🎉 SUCCESS: ${contractName} is VERIFIED on ${EXPLORER_HOST}!`);
+                    console.log(`🔗 https://${EXPLORER_HOST}/address/${contractAddress}#code`);
                     return true;
                 }
             }
@@ -130,20 +132,26 @@ async function verifyWithStandardJson(contractAddress, contractName, jsonPath) {
 
 async function main() {
     const rootDir = path.resolve(__dirname, '..');
+    const scoreAddr = process.argv[2] || process.env.SCORE_ADDR || '0x2726459981F58d2ea331A2309655DB267057aaC8';
+    const oracleAddr = process.argv[3] || process.env.ORACLE_ADDR || '0xa5af6637A9bAB165CDF467b5385250770757cb01';
 
     // 1. NeonArcadeScore
-    await verifyWithStandardJson(
-        '0x2726459981F58d2ea331A2309655DB267057aaC8',
-        'NeonArcadeScore',
-        path.join(rootDir, 'contracts/NeonArcadeScore_StandardJson.json')
-    );
+    if (scoreAddr) {
+        await verifyWithStandardJson(
+            scoreAddr,
+            'NeonArcadeScore',
+            path.join(rootDir, 'contracts/NeonArcadeScore_StandardJson.json')
+        );
+    }
 
     // 2. NeonOracle
-    await verifyWithStandardJson(
-        '0xa5af6637A9bAB165CDF467b5385250770757cb01',
-        'NeonOracle',
-        path.join(rootDir, 'contracts/NeonOracle_StandardJson.json')
-    );
+    if (oracleAddr) {
+        await verifyWithStandardJson(
+            oracleAddr,
+            'NeonOracle',
+            path.join(rootDir, 'contracts/NeonOracle_StandardJson.json')
+        );
+    }
 }
 
 main();

@@ -23,7 +23,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab }) => {
       <div className="nav-brand" onClick={() => setActiveTab('lobby')}>
         <div className="nav-logo-icon">⚡</div>
         <div className="nav-brand-text">NEON ARCADE</div>
-        <span className="nav-testnet-tag">TESTNET</span>
+        <span className="nav-testnet-tag" style={{ background: 'rgba(0, 255, 157, 0.15)', borderColor: 'rgba(0, 255, 157, 0.5)', color: '#00ff9d' }}>MAINNET</span>
       </div>
 
       {/* Game Selector Tabs */}

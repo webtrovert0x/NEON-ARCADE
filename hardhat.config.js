@@ -4,6 +4,11 @@ require('dotenv').config();
 module.exports = {
   solidity: "0.8.20",
   networks: {
+    botchainMainnet: {
+      url: process.env.BOTCHAIN_MAINNET_RPC || "https://rpc.botchain.ai",
+      chainId: 677,
+      accounts: process.env.PRIVATE_KEY ? [process.env.PRIVATE_KEY] : []
+    },
     botchainTestnet: {
       url: process.env.BOTCHAIN_TESTNET_RPC || "https://rpc.bohr.life",
       chainId: 968,

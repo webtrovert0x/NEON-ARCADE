@@ -1,12 +1,12 @@
-# ⚡ NEON ARCADE — BOT Chain Testnet Multi-Game Web3 Suite
+# ⚡ NEON ARCADE — BOT Chain Mainnet Multi-Game Web3 Suite
 
 ![Next.js](https://img.shields.io/badge/Next.js-14+-00f0ff?style=for-the-badge&logo=nextdotjs)
 ![TypeScript](https://img.shields.io/badge/TypeScript-TSX-3178C6?style=for-the-badge&logo=typescript)
-![Network](https://img.shields.io/badge/Network-BOT%20Chain%20Testnet-8a2be2?style=for-the-badge)
-![Whitepaper](https://img.shields.io/badge/Whitepaper-v2.1.0-ff007f?style=for-the-badge)
-![License](https://img.shields.io/badge/License-MIT-00ff9d?style=for-the-badge)
+![Network](https://img.shields.io/badge/Network-BOT%20Chain%20Mainnet-00ff9d?style=for-the-badge)
+![Whitepaper](https://img.shields.io/badge/Whitepaper-v3.0.0-ff007f?style=for-the-badge)
+![License](https://img.shields.io/badge/License-MIT-00f0ff?style=for-the-badge)
 
-**Neon Arcade** is a decentralized cyberpunk gaming hub and prediction platform built on **Next.js (`.tsx`)**, powered by **Reown AppKit** and **Wagmi v2**, tailored exclusively for **BOT Chain Testnet (`Chain ID: 968`)**.
+**Neon Arcade** is a decentralized cyberpunk gaming hub and prediction platform built on **Next.js (`.tsx`)**, powered by **Reown AppKit** and **Wagmi v2**, running on **BOT Chain Mainnet (`Chain ID: 677`)**.
 
 📄 **Read the complete system specification in the [NEON ARCADE WHITEPAPER](WHITEPAPER.md).**
 
@@ -32,15 +32,16 @@
 
 ---
 
-## 🌐 BOT Chain Testnet Parameters
+## 🌐 BOT Chain Mainnet Parameters
 
 | Parameter | Value |
 | :--- | :--- |
-| **Network Name** | BOT Chain Testnet |
-| **Chain ID** | `968` (`0x3c8`) |
-| **RPC Endpoint** | `https://rpc.bohr.life` |
-| **Currency Symbol** | `BOT` |
-| **Testnet Block Explorer** | [https://scan.bohr.life](https://scan.bohr.life) |
+| **Network Name** | BOT Chain Mainnet |
+| **Chain ID** | `677` (`0x2a5`) |
+| **RPC Endpoint** | `https://rpc.botchain.ai` |
+| **Currency Symbol** | `BOT` (Decimals: 18) |
+| **Total Supply** | 150 Million BOT |
+| **Mainnet Block Explorer** | [https://scan.botchain.ai](https://scan.botchain.ai) |
 
 ---
 
@@ -61,17 +62,17 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## 📜 Smart Contracts & On-Chain Vault
 
-Deployed live on **BOT Chain Testnet (`968`)**:
-- 🏆 **`NeonArcadeScore`**: [`0x2726459981F58d2ea331A2309655DB267057aaC8`](https://scan.bohr.life/address/0x2726459981F58d2ea331A2309655DB267057aaC8)
-- 🔮 **`NeonOracle`**: [`0xa5af6637A9bAB165CDF467b5385250770757cb01`](https://scan.bohr.life/address/0xa5af6637A9bAB165CDF467b5385250770757cb01)
+Deployed live on **BOT Chain Mainnet (`677`)**:
+- 🏆 **`NeonArcadeScore`**: [`0x1b86c8c2F24f748302edc6fe8f53A161F7c4cFF0`](https://scan.botchain.ai/address/0x1b86c8c2F24f748302edc6fe8f53A161F7c4cFF0)
+- 🔮 **`NeonOracle`**: [`0xDC93C0E2B3DB34C8d6582f9bdCF82BfdbceCCE6c`](https://scan.botchain.ai/address/0xDC93C0E2B3DB34C8d6582f9bdCF82BfdbceCCE6c)
 
 Deploy or verify contracts:
 ```bash
-# Deploy to BOT Chain Testnet
-npm run deploy:testnet
+# Deploy to BOT Chain Mainnet
+npm run deploy:mainnet
 
-# Verify contract
-npm run verify:testnet
+# Verify contracts on BOT Chain Explorer
+npm run verify:mainnet
 ```
 
 ---

@@ -1,9 +1,9 @@
 /**
- * Neon Arcade On-Chain Contract Config for BOT Chain Testnet (968)
+ * Neon Arcade On-Chain Contract Config for BOT Chain Mainnet (677)
  */
 
 export const ARCADE_SCORE_CONTRACT_ADDRESS = (
-  process.env.NEXT_PUBLIC_ARCADE_CONTRACT_ADDRESS || '0x2726459981F58d2ea331A2309655DB267057aaC8'
+  process.env.NEXT_PUBLIC_ARCADE_CONTRACT_ADDRESS || '0x1b86c8c2F24f748302edc6fe8f53A161F7c4cFF0'
 ) as `0x${string}`;
 
 export const ARCADE_SCORE_ABI = [

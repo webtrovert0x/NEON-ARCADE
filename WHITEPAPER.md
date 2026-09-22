@@ -1,18 +1,31 @@
-# ⚡ NEON ARCADE — WHITEPAPER
-### Decentralized Quantum Mini-Games & On-Chain High Score Ecosystem
-**Version:** 2.1.0 • **Network:** BOT Chain Testnet (Chain ID: 968) • **Date:** September 2026
+# ⚡ NEON ARCADE — OFFICIAL WHITEPAPER
+### Decentralized Quantum Mini-Games & Verifiable On-Chain High Score Ecosystem
+**Version:** 3.0.0 • **Network:** BOT Chain Mainnet (Chain ID: 677) • **Date:** September 2026
 
 ---
 
 ## 1. Executive Summary
 
-**NEON ARCADE** is a high-performance, cyberpunk-themed Web3 gaming portal built on **BOT Chain Testnet** using **Next.js 14 (`.tsx`)**, **Reown AppKit**, and **Wagmi v2**. 
+**NEON ARCADE** is an institutional-grade decentralized gaming and prediction suite deployed on **BOT Chain Mainnet (`Chain ID: 677`)**. Built with **Next.js 14 (`.tsx`)**, **Reown AppKit**, and **Wagmi v2**, Neon Arcade eliminates the friction that has historically plagued Web3 gaming.
 
-The platform bridges instant, zero-latency browser gaming with verifiable on-chain transparency. Players engage in a suite of quantum prediction matrices, deduction challenges, and streak multipliers, accumulating Points (`🏆 PTS`), Experience, and Achievements with the option to permanently commit their records to the **BOT Chain blockchain**.
+Traditional decentralized applications force users to sign wallet transactions and pay gas fees for every in-game interaction, creating severe latency and ruining user engagement. Neon Arcade introduces a **Frictionless Hybrid Architecture**:
+* **Client Layer**: Lightning-fast, zero-latency 60 FPS gameplay, state progression, and procedural audio synthesis.
+* **Blockchain Layer**: Gas-optimized Solidity smart contracts verified on **[BOT Chain Explorer](https://scan.botchain.ai/)** that permanently vault player achievements, total points (`🏆 PTS`), and win streaks with on-demand one-click verification.
 
 ---
 
-## 2. Core Architecture & Technology Stack
+## 2. Verified Smart Contracts on BOT Chain Mainnet
+
+Both smart contracts are compiled with Solidity `0.8.20` (`paris` EVM target) and 100% verified on BOT Chain Explorer:
+
+| Contract Name | Contract Address | Explorer Link | Verification Status |
+| :--- | :--- | :--- | :--- |
+| **`NeonArcadeScore`** (Score Vault) | `0x1b86c8c2F24f748302edc6fe8f53A161F7c4cFF0` | [BOT Scan Contract](https://scan.botchain.ai/address/0x1b86c8c2F24f748302edc6fe8f53A161F7c4cFF0#code) | ✅ **Pass - Verified** |
+| **`NeonOracle`** (Prediction Matrix) | `0xDC93C0E2B3DB34C8d6582f9bdCF82BfdbceCCE6c` | [BOT Scan Contract](https://scan.botchain.ai/address/0xDC93C0E2B3DB34C8d6582f9bdCF82BfdbceCCE6c#code) | ✅ **Pass - Verified** |
+
+---
+
+## 3. Network Architecture (BOT Chain Mainnet)
 
 ```
                                   ┌────────────────────────┐
@@ -29,116 +42,156 @@ The platform bridges instant, zero-latency browser gaming with verifiable on-cha
                      │                                                 │
                      ▼                                                 ▼
           ┌───────────────────────────────────────────────────────────────────────┐
-          │                       BOT CHAIN TESTNET (ID: 968)                     │
-          │                   Smart Contract: NeonArcadeScore.sol                 │
-          │               Explorer: https://scan.bohr.life/address/...            │
+          │                       BOT CHAIN MAINNET (ID: 677)                     │
+          │                                                                       │
+          │   RPC: https://rpc.botchain.ai       Block Time: ~3.0s                │
+          │   Explorer: https://scan.botchain.ai Native Token: BOT (150M Supply)  │
+          │   Score Vault: 0x1b86c8c2F24f748302edc6fe8f53A161F7c4cFF0            │
           └───────────────────────────────────────────────────────────────────────┘
 ```
 
-### 2.1 Technology Matrix
-* **Frontend Framework**: Next.js 14 App Router, React 18, TypeScript (`.tsx`).
-* **Design System**: Vanilla Cyberpunk CSS Tokens, Glassmorphism, Orbitron & Rajdhani Typography.
-* **Web3 Integration**: `@reown/appkit`, `@reown/appkit-adapter-wagmi`, `wagmi@2.x`, `viem`.
-* **Audio Engine**: Native procedural Web Audio API synthesizer (Zero asset dependencies).
-* **Smart Contracts**: Solidity 0.8.20 (Hardhat environment).
+---
+
+## 4. Game Suite Specifications & Game Theory
+
+### 🔮 4.1 Neon Oracle (Quantum Frequency Synchronization)
+* **Description**: A multi-tiered harmonic frequency deduction game where players calibrate antenna probes to identify a secret target frequency before energy nodes deplete.
+* **Calibration Tiers**:
+  * **Tier 1 (Initiate)**: Range `1 — 50` • 7 Energy Nodes • `+100 PTS`
+  * **Tier 2 (Seer)**: Range `1 — 100` • 5 Energy Nodes • `+250 PTS`
+  * **Tier 3 (Grand Oracle)**: Range `1 — 500` • 8 Energy Nodes • `+500 PTS`
+* **Directional Proximity Telemetry**:
+  * $\Delta \le 5$: `🔥 PROXIMITY CRITICAL`
+  * $5 < \Delta \le 15$: `⚡ SIGNAL WARM`
+  * $\Delta > 15$: `❄️ SIGNAL COLD`
+* **Cryptographic Quantum Hints**: Provides modular parity (`EVEN` vs `ODD`), prime signature verification, and binary search domain partition telemetry.
 
 ---
 
-## 3. Network Parameters (BOT Chain Testnet)
-
-| Parameter | Specification |
-| :--- | :--- |
-| **Network Name** | BOT Chain Testnet |
-| **Chain ID** | `968` (`0x3c8`) |
-| **RPC Endpoint** | `https://rpc.bohr.life` |
-| **Native Token** | `BOT` |
-| **Block Explorer** | [https://scan.bohr.life](https://scan.bohr.life) |
-| **Contract Target** | EVM `paris` compatible |
+### 🪙 4.2 Quantum Flip (Superposition Double-or-Nothing)
+* **Description**: High-velocity binary state prediction where players forecast quantum wave function collapse into `Cyan 0x0` or `Magenta 0x1`.
+* **Multiplier Scaling Formula**:
+  $$\text{Score}(s) = \text{Base Points} \times 2^s$$
+  $$\text{Multiplier Tier: } [2\times, 4\times, 8\times, 16\times]$$
+* **Risk/Reward Game Theory**:
+  Players must tactically decide whether to **Cash Out** and lock in their accumulated PTS or risk their pot for an exponential multiplier. A single collapsed state forfeits the active pot, testing player risk tolerance.
 
 ---
 
-## 4. Game Suite Specifications & Mechanics
-
-### 🔮 1. Neon Oracle (Quantum Frequency Synchronization)
-* **Concept**: Probe and synchronize with an encrypted quantum harmonic frequency across 3 difficulty tiers.
-* **Tiers & Rewards**:
-  * **Initiate**: Range `1 — 50`, 7 Energy Nodes, `+100 PTS`
-  * **Seer**: Range `1 — 100`, 5 Energy Nodes, `+250 PTS`
-  * **Grand Oracle**: Range `1 — 500`, 8 Energy Nodes, `+500 PTS`
-* **Features**: Dynamic 3D quantum orb resonance, directional proximity telemetry (`Proximity Critical`, `Signal Warm`, `Signal Cold`), and cryptographic parity/prime hints.
+### 🔐 4.3 Cipher Breaker (Holographic Security Terminal)
+* **Description**: Cyberpunk security breach terminal requiring players to deduce a pseudo-randomly generated 4-digit holographic security code within 6 breach attempts.
+* **Feedback Matrix**:
+  * 🟢 **Exact Match ($E$)**: Digit correct in both value and index position.
+  * 🟡 **Displaced Digit ($D$)**: Digit present in secret code but positioned in an alternate index.
+* **Reward**: `+350 PTS` upon security protocol bypass.
 
 ---
 
-### 🪙 2. Quantum Flip (Superposition Double-or-Nothing)
-* **Concept**: Predict binary quantum state collapse (`Cyan 0x0` vs `Magenta 0x1`).
-* **Multiplier Scaling**:
-  $$\text{Score} = \text{Base Points} \times 2^{\text{Streak}}$$
-  $$\text{Multipliers: } 2\times \rightarrow 4\times \rightarrow 8\times \rightarrow 16\times$$
-* **Mechanics**: Full 3D coin flip physics with real-time risk mitigation (Cashout & Lock-in Score vs Double-or-Nothing streak continuation).
+### ⚡ 4.4 Grid Rush (Dynamic Multiplier Matrix)
+* **Description**: Continuous probability slider game allowing players to configure their exact risk curve ($1\% - 95\%$) and roll a quantum 100-sided die.
+* **Mathematical Payout Model**:
+  $$\text{Multiplier} = \frac{98.0}{\text{Target Threshold}}$$
+* **Payout Range**: Multipliers scale from $1.03\times$ up to $50.00\times$ points on ultra-low threshold rolls.
 
 ---
 
-### 🔐 3. Cipher Breaker (Holographic Security Terminal)
-* **Concept**: Deduce a randomly generated 4-digit holographic security vault code within 6 breach attempts.
-* **Telemetry**:
-  * 🟢 **Exact Matches**: Correct digits in the exact index position.
-  * 🟡 **Displaced Digits**: Correct digits located in alternate index positions.
-* **Reward**: `+350 PTS` upon security bypass.
+## 5. Technical Specifications & Audio Engine
+
+### 5.1 Procedural Web Audio Synthesis Engine
+Neon Arcade features a completely custom, zero-dependency procedural audio engine ([`lib/audio.ts`](file:///Users/mac/Desktop/LEVEL2/Firebase/test%20fire/public/guess/web3-guess-game/frontend/lib/audio.ts)) built directly on the browser's native **Web Audio API**:
+* **Audio Synthesis Modes**:
+  * `click`: 800Hz sine burst with 40ms exponential gain decay.
+  * `win`: Multi-stage major triad arpeggio (523Hz $\rightarrow$ 659Hz $\rightarrow$ 784Hz $\rightarrow$ 1046Hz).
+  * `fail`: Low frequency saw-tooth pitch drop (220Hz $\rightarrow$ 80Hz).
+  * `higher` / `lower`: Harmonic frequency directional feedback tones.
+  * `flip`: Rapid multi-stage oscillator envelope simulation.
 
 ---
 
-### ⚡ 4. Grid Rush (Probability Threshold Matrix)
-* **Concept**: Slide probability thresholds ($1\% - 95\%$) and roll a 100-sided quantum die.
-* **Mathematical Model**:
-  $$\text{Multiplier} = \frac{98}{\text{Target Number}}$$
-* **Payout Range**: Scales smoothly up to $50\times$ points on high-difficulty rolls.
+## 6. On-Chain Smart Contract Architecture
 
----
-
-## 5. On-Chain Scoring & State Architecture
-
-### 5.1 Hybrid State Flow (Frictionless UX)
-To avoid disrupting gameplay with repetitive MetaMask signing modals on every guess or roll, Neon Arcade implements an **On-Demand On-Chain Commit Model**:
-
-1. **Instant Session Play**: Points, wins, and streaks update locally in real-time with zero gas and zero latency.
-2. **One-Click Blockchain Vaulting**: Players commit their accumulated high score whenever desired via the `OnChainScoreCard` component.
-3. **Smart Contract Verification**: `NeonArcadeScore.sol` updates the player's monotonic high score and emits a `ScoreRecorded` event to BOT Chain Testnet.
-
-### 5.2 Smart Contract Interface (`NeonArcadeScore.sol`)
+### 6.1 `NeonArcadeScore.sol` Implementation
 ```solidity
-struct PlayerStats {
-    uint256 totalPoints;
-    uint256 gamesWon;
-    uint256 highStreak;
-    uint256 lastUpdated;
-}
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.20;
 
-function recordScore(uint256 points, uint256 won, uint256 streak) external;
-function getPlayerStats(address player) external view returns (PlayerStats memory);
-function getTotalPlayers() external view returns (uint256);
+contract NeonArcadeScore {
+    struct PlayerStats {
+        uint256 totalPoints;
+        uint256 gamesWon;
+        uint256 highStreak;
+        uint256 lastUpdated;
+    }
+
+    mapping(address => PlayerStats) public playerStats;
+    address[] public registeredPlayers;
+    mapping(address => bool) private hasPlayed;
+
+    event ScoreRecorded(
+        address indexed player,
+        uint256 totalPoints,
+        uint256 gamesWon,
+        uint256 highStreak,
+        uint256 timestamp
+    );
+
+    function recordScore(uint256 points, uint256 won, uint256 streak) external {
+        PlayerStats storage stats = playerStats[msg.sender];
+
+        if (!hasPlayed[msg.sender]) {
+            hasPlayed[msg.sender] = true;
+            registeredPlayers.push(msg.sender);
+        }
+
+        if (points > stats.totalPoints) stats.totalPoints = points;
+        if (won > stats.gamesWon) stats.gamesWon = won;
+        if (streak > stats.highStreak) stats.highStreak = streak;
+        stats.lastUpdated = block.timestamp;
+
+        emit ScoreRecorded(msg.sender, stats.totalPoints, stats.gamesWon, stats.highStreak, block.timestamp);
+    }
+
+    function getPlayerStats(address player) external view returns (PlayerStats memory) {
+        return playerStats[player];
+    }
+
+    function getTotalPlayers() external view returns (uint256) {
+        return registeredPlayers.length;
+    }
+}
 ```
 
 ---
 
-## 6. Security, Gas & Tokenomics
+## 7. Gas Optimization & Security
 
-* **Gas Efficiency**: Score commitment transactions require only **~30,000 gas units** ($< 0.0001\text{ BOT}$).
-* **Free-to-Play Testnet Model**: Gas is paid in testnet BOT tokens obtained via faucets, removing financial barriers for participants.
-* **Private Key Security**: Deployment environments isolate secrets with strict `.gitignore` protection and `.env.example` templates.
-
----
-
-## 7. Development Roadmap
-
-* [x] **Phase 1**: Cyberpunk Web3 Arcade Portal with Next.js 14 & Reown AppKit.
-* [x] **Phase 2**: 4 Playable Arcade Games with Web Audio Synthesizer SFX.
-* [x] **Phase 3**: On-Chain Score Vault Smart Contract on BOT Chain Testnet (`968`).
-* [ ] **Phase 4**: Global On-Chain Leaderboard & Player Ranking Subgraph.
-* [ ] **Phase 5**: Soulbound Achievement Badges (ERC-721/1155) minted for top score milestones.
-* [ ] **Phase 6**: Multiplayer PVP Duel Modes & Mainnet Launch.
+* **Gas Consumption**: Record operations utilize under **30,000 gas units** ($< 0.0001\text{ BOT}$).
+* **Testnet Economic Model**: Gas is subsidized through testnet faucets, ensuring zero financial barrier to entry.
+* **Secret Protection**: Repository enforces strict `.gitignore` containment for private keys with clean `.env.example` templates.
 
 ---
 
-## 8. License & Disclaimer
-Neon Arcade is open-source software released under the **MIT License**.
-*BOT Chain Testnet is an experimental testing environment.*
+## 8. Strategic Roadmap
+
+```
+  PHASE 1 (COMPLETED)           PHASE 2 (COMPLETED)           PHASE 3 (COMPLETED)           PHASE 4 (NEXT)
+┌───────────────────────┐     ┌───────────────────────┐     ┌───────────────────────┐     ┌───────────────────────┐
+│ Next.js 14 App Router │ ──> │ 4 Playable Arcade     │ ──> │ On-Chain Score Vault  │ ──> │ Global Leaderboard    │
+│ Reown AppKit + Wagmi  │     │ Web Audio Synthesizer │     │ Verified on Bohr Scan │     │ Subgraph Indexer      │
+└───────────────────────┘     └───────────────────────┘     └───────────────────────┘     └───────────────────────┘
+                                                                                                      │
+                                                                                                      ▼
+                                                             PHASE 6 (MAINNET)             PHASE 5 (ECOSYSTEM)
+                                                          ┌───────────────────────┐     ┌───────────────────────┐
+                                                          │ Mainnet Token Launch  │ <── │ Soulbound NFT Badges  │
+                                                          │ PVP Wager Arenas      │     │ Multi-Token Staking   │
+                                                          └───────────────────────┘     └───────────────────────┘
+```
+
+---
+
+## 9. Conclusion & License
+Neon Arcade pioneers a new standard for Web3 arcade portals on **BOT Chain Testnet**, unifying responsive gaming with blockchain permanence.
+
+* **Repository**: [https://github.com/webtrovert0x/NEON-ARCADE](https://github.com/webtrovert0x/NEON-ARCADE)
+* **License**: Open-source under the **MIT License**.
