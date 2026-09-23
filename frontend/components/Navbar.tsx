@@ -20,8 +20,12 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab }) => {
   return (
     <header className="navbar">
       {/* Brand Section */}
-      <div className="nav-brand" onClick={() => setActiveTab('lobby')}>
-        <div className="nav-logo-icon">⚡</div>
+      <div className="nav-brand" onClick={() => setActiveTab('lobby')} style={{ cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '10px' }}>
+        <img
+          src="/logo.jpg"
+          alt="NEON ARCADE Logo"
+          style={{ width: '32px', height: '32px', borderRadius: '8px', border: '1px solid rgba(0,240,255,0.4)', objectFit: 'cover' }}
+        />
         <div className="nav-brand-text">NEON ARCADE</div>
         <span className="nav-testnet-tag" style={{ background: 'rgba(0, 255, 157, 0.15)', borderColor: 'rgba(0, 255, 157, 0.5)', color: '#00ff9d' }}>MAINNET</span>
       </div>

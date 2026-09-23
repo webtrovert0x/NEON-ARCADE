@@ -5,8 +5,13 @@ import { Web3Provider } from '../context/Web3Context';
 import { Toast } from '../components/Toast';
 
 export const metadata: Metadata = {
-  title: 'NEON ARCADE | BOT Chain Testnet Gaming Hub',
-  description: 'Cyberpunk Web3 arcade featuring Neon Oracle, Quantum Flip, Cipher Breaker, and Grid Rush on BOT Chain Testnet using Reown AppKit & Wagmi.',
+  title: 'NEON ARCADE | BOT Chain Mainnet Gaming Hub',
+  description: 'Cyberpunk Web3 arcade featuring Neon Oracle, Quantum Flip, Cipher Breaker, and Grid Rush on BOT Chain Mainnet using Reown AppKit & Wagmi.',
+  icons: {
+    icon: '/logo.jpg',
+    shortcut: '/logo.jpg',
+    apple: '/logo.jpg',
+  },
 };
 
 export default function RootLayout({
