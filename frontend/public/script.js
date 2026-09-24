@@ -1,18 +1,18 @@
 /**
  * NEON ORACLE — Decentralized Number Matrix Prediction Engine
- * Deployed for BOT Chain Testnet (Chain ID: 968)
+ * Deployed for BOT Chain Mainnet (Chain ID: 677)
  */
 
-// BOT Chain Testnet Parameters
+// BOT Chain Mainnet Parameters
 const BOT_CHAIN_CONFIG = {
-    chainId: '0x3c8', // 968 in Hex
-    chainName: 'BOT Chain Testnet',
+    chainId: '0x2a5', // 677 in Hex
+    chainName: 'BOT Chain',
     nativeCurrency: {
         name: 'BOT Token',
         symbol: 'BOT',
         decimals: 18,
     },
-    rpcUrls: ['https://rpc.bohr.life'],
+    rpcUrls: ['https://rpc.botchain.ai'],
     blockExplorerUrls: ['https://scan.botchain.ai'],
 };
 

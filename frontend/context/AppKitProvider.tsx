@@ -5,7 +5,7 @@ import { createAppKit } from '@reown/appkit/react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { WagmiProvider, type Config } from 'wagmi';
 import { projectId, wagmiAdapter } from '../config';
-import { botChainTestnet } from '../config/botchain';
+import { botChainMainnet } from '../config/botchain';
 
 // Setup query client
 const queryClient = new QueryClient();
@@ -13,17 +13,17 @@ const queryClient = new QueryClient();
 // General app metadata
 const metadata = {
   name: 'Neon Arcade',
-  description: 'Cyberpunk Web3 Gaming Hub on BOT Chain Testnet',
+  description: 'Cyberpunk Web3 Gaming Hub on BOT Chain Mainnet',
   url: 'https://neonarcade.xyz',
-  icons: ['https://avatars.githubusercontent.com/u/179229932'],
+  icons: ['/logo.jpg'],
 };
 
 // Create the AppKit instance at module level
 export const modal = createAppKit({
   adapters: [wagmiAdapter],
   projectId,
-  networks: [botChainTestnet],
-  defaultNetwork: botChainTestnet,
+  networks: [botChainMainnet],
+  defaultNetwork: botChainMainnet,
   metadata,
   themeMode: 'dark',
   themeVariables: {
