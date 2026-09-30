@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { AppKitProvider } from '../context/AppKitProvider';
 import { Web3Provider } from '../context/Web3Context';
 import { Toast } from '../components/Toast';
+import { Footer } from '../components/Footer';
 
 export const metadata: Metadata = {
   title: 'NEON ARCADE | BOT Chain Mainnet Gaming Hub',
@@ -29,6 +30,7 @@ export default function RootLayout({
             <div className="scanlines" aria-hidden="true" />
             <div className="main-layout">
               {children}
+              <Footer />
             </div>
             <Toast />
           </Web3Provider>
