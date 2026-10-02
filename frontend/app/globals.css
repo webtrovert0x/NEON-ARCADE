@@ -247,9 +247,9 @@ body {
 .navbar-bottom {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  padding: 6px 14px;
+  justify-content: center;
+  gap: 16px;
+  padding: 8px 16px;
   background: rgba(8, 11, 24, 0.92);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
@@ -272,7 +272,7 @@ body {
   font-weight: 800;
   letter-spacing: 1px;
   color: var(--neon-cyan);
-  padding: 4px 8px;
+  padding: 4px 10px;
   background: rgba(0, 240, 255, 0.08);
   border-radius: 6px;
   border: 1px solid rgba(0, 240, 255, 0.2);
@@ -282,8 +282,8 @@ body {
 .nav-games-tabs {
   display: flex;
   align-items: center;
-  gap: 8px;
-  flex-grow: 1;
+  justify-content: center;
+  gap: 10px;
   overflow-x: auto;
 }
 
