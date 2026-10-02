@@ -243,6 +243,28 @@ body {
   transform: translateY(-1px);
 }
 
+.nav-explorer-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(0, 240, 255, 0.08);
+  border: 1px solid rgba(0, 240, 255, 0.3);
+  color: #00f0ff;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 6px 10px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.nav-explorer-link:hover {
+  background: rgba(0, 240, 255, 0.18);
+  border-color: #00f0ff;
+  transform: translateY(-1px);
+}
+
 /* ─── TIER 2: BOTTOM BAR (Available Games Navigation) ─── */
 .navbar-bottom {
   display: flex;

@@ -65,7 +65,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab }) => {
             🏆 {globalScore} PTS
           </div>
 
-          {/* Official BOT Chain Link */}
+          {/* Official BOT Chain Website Link */}
           <a
             href="https://www.botchain.ai/en/"
             target="_blank"
@@ -79,6 +79,22 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab }) => {
               style={{ width: '15px', height: '15px' }}
             />
             <span>BOT Chain ↗</span>
+          </a>
+
+          {/* Official BOT Chain Explorer Link */}
+          <a
+            href="https://scan.botchain.ai"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="nav-explorer-link"
+            title="Inspect on BOT Chain Explorer"
+          >
+            <img
+              src="/bot_token_icon.svg"
+              alt="BOT Explorer"
+              style={{ width: '15px', height: '15px' }}
+            />
+            <span>Explorer ↗</span>
           </a>
 
           {/* Web3 Wallet Widget */}
