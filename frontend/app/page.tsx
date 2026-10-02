@@ -160,23 +160,53 @@ export default function Home() {
               gap: '16px',
             }}
           >
-            <div>
-              <h4 style={{ fontFamily: 'Orbitron, sans-serif', fontSize: '1.1rem', color: '#fff', marginBottom: '4px' }}>
-                Powered by BOT Chain Mainnet
-              </h4>
-              <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>
-                Chain ID: 677 (0x2a5) • RPC: https://rpc.botchain.ai • Zero latency & on-chain verification
-              </p>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+              <img
+                src="/bot_token_icon.svg"
+                alt="BOT Chain Logo"
+                style={{ width: '36px', height: '36px', objectFit: 'contain' }}
+              />
+              <div>
+                <h4 style={{ fontFamily: 'Orbitron, sans-serif', fontSize: '1.1rem', color: '#fff', marginBottom: '4px' }}>
+                  Powered by BOT Chain Mainnet
+                </h4>
+                <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>
+                  Chain ID: 677 (0x2a5) • RPC: https://rpc.botchain.ai • Zero latency & on-chain verification
+                </p>
+              </div>
             </div>
-            <a
-              href="https://scan.botchain.ai"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="nav-tab-btn"
-              style={{ textDecoration: 'none', color: 'var(--neon-green)', borderColor: 'var(--neon-green)' }}
-            >
-              Mainnet Scan ↗
-            </a>
+            <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+              <a
+                href="https://www.botchain.ai/en/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="nav-tab-btn"
+                style={{
+                  textDecoration: 'none',
+                  color: '#10a37f',
+                  borderColor: '#10a37f',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                }}
+              >
+                <img
+                  src="/bot_token_icon.svg"
+                  alt="BOT Chain"
+                  style={{ width: '16px', height: '16px' }}
+                />
+                <span>BOT Chain ↗</span>
+              </a>
+              <a
+                href="https://scan.botchain.ai"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="nav-tab-btn"
+                style={{ textDecoration: 'none', color: 'var(--neon-green)', borderColor: 'var(--neon-green)' }}
+              >
+                Mainnet Scan ↗
+              </a>
+            </div>
           </div>
         </div>
       )}

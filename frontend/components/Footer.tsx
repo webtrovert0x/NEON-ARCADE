@@ -48,25 +48,29 @@ export const Footer: React.FC = () => {
         {/* Official BOT Chain Ecosystem Links (Criterion 3) */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flexWrap: 'wrap' }}>
           <a
-            href="https://botchain.ai"
+            href="https://www.botchain.ai/en/"
             target="_blank"
             rel="noopener noreferrer"
             style={{
               display: 'inline-flex',
               alignItems: 'center',
-              gap: '6px',
-              padding: '8px 16px',
+              gap: '8px',
+              padding: '8px 18px',
               borderRadius: '8px',
-              background: 'rgba(0, 255, 157, 0.08)',
-              border: '1px solid rgba(0, 255, 157, 0.3)',
-              color: '#00ff9d',
+              background: 'rgba(16, 163, 127, 0.12)',
+              border: '1px solid rgba(16, 163, 127, 0.4)',
+              color: '#10a37f',
               fontSize: '0.85rem',
               textDecoration: 'none',
               fontFamily: 'Orbitron, sans-serif',
               transition: 'all 0.2s ease',
             }}
           >
-            <span>🤖</span>
+            <img
+              src="/bot_token_icon.svg"
+              alt="BOT Chain Emblem"
+              style={{ width: '18px', height: '18px', objectFit: 'contain' }}
+            />
             <span>BOT Chain Website ↗</span>
           </a>
 
@@ -77,8 +81,8 @@ export const Footer: React.FC = () => {
             style={{
               display: 'inline-flex',
               alignItems: 'center',
-              gap: '6px',
-              padding: '8px 16px',
+              gap: '8px',
+              padding: '8px 18px',
               borderRadius: '8px',
               background: 'rgba(0, 240, 255, 0.08)',
               border: '1px solid rgba(0, 240, 255, 0.3)',
@@ -89,7 +93,11 @@ export const Footer: React.FC = () => {
               transition: 'all 0.2s ease',
             }}
           >
-            <span>🔍</span>
+            <img
+              src="/bot_token_icon.svg"
+              alt="BOT Chain Explorer"
+              style={{ width: '18px', height: '18px', objectFit: 'contain' }}
+            />
             <span>BOT Chain Explorer ↗</span>
           </a>
 
